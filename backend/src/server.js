@@ -27,7 +27,7 @@ app.use(rateLimit);
 //     next();
 // });
 
-app.use("/api/notes", noterouters);
+app.use("/api/notes", rateLimit, noterouters);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
